@@ -9,11 +9,25 @@
   </head>
 
   <body>
-   <%= link_to "Справка", pages_about_path %>
-   <%= link_to "Главная", root_path %>   
-   
-    <%= yield %>
+  	<div class="container-fluid container-background">
+  	<div class="container">
+    
 
-   <p><h6>VF fuflocoding 2018</h6></p>
+
+	<ul class="nav">
+	  <li class="nav-item">
+	    <%= link_to "Instaphoto", root_path %> 
+	  </li>
+	  <li class="nav-item">
+	    <%= link_to "About", pages_about_path %>
+	  </li>
+	 </ul>
+
+
+	<%= yield %>
+
+    <p><h6>VF-2018</h6></p>
+    
+    </div></div>
   </body>
 </html>

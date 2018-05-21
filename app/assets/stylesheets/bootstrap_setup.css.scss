@@ -1,0 +1,63 @@
+$display3-size: 2.5rem;
+$jumbotron-bg: rgba(255, 255, 255, 0.3);
+$link-color: #303030;
+/*$link-hover-color: darken($link-color, 35%);*/
+$link-hover-color: #AA1010;
+$link-decoration: none !important;
+$primary: #303030;
+
+
+@import "bootstrap";
+
+
+$text-color: #801000;
+
+.r-text {
+	color: $text-color;
+}
+
+.nav-item {
+	margin-left: 1.2%;
+}
+
+.btn {
+    border: 0 none;
+}
+
+.btn-primary {
+	background: #303030;
+    color: #ffffff;
+}
+
+.btn-primary:hover {
+	background: #AA1010;
+    color: #ffffff;
+}
+
+.btn-primary:active {
+  background: black !important;
+  /*outline: none !important;
+  box-shadow: none !important;*/
+  
+}
+
+.button:focus {
+  /*background: green;
+  outline-color: green !important;*/
+}
+
+
+.container-background {
+	width: 100%;
+	height: 100vh;
+	background-size: cover;
+	background-image: url(image_path('Background2.jpg'));
+}
+
+
+.jumbotron-landing {
+	width: 50%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
