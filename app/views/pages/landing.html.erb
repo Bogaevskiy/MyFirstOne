@@ -1,19 +1,36 @@
+<% if user_signed_in? %>
+ 
+<p class="lead">Добро пожаловать.</p>
+
+<% else %>
+
 <div class="jumbotron jumbotron-landing">
   <h1 class="display-3">Всем привет!</h1>
 
   <p class="lead">Это будет клон чего-то типа инстаграмма, так что пилите фотки, подписывайтесь на френдов и все такое</p>
   <hr class="my-4">
   
-  <a class="btn btn-primary " href="#" role="button">Вписаться</a>
-  <a class="btn btn-primary " href="#" role="button">Войти</a>
+
   
+  <%= link_to "Вписаться", new_user_registration_path , class:"btn btn-primary" %>
+  <%= link_to "Войти", new_user_session_path , class:"btn btn-primary" %>
+
 </div>
 
+<% end %>
 
 
-<!--- <h1>Добрый день</h1>
+
+
+
+<!--
+ Старые кнопки, неработающие
+  <a class="btn btn-primary " href="#" role="button">Вписаться--</a>
+  <a class="btn btn-primary " href="#" role="button">Войти--</a>
+
+  <h1>Добрый день</h1>
 <h2>И добро пожаловать </h2>
-<p>Это - "посадочная полоса" моих первых трудов на Rails</p> --->
+<p>Это - "посадочная полоса" моих первых трудов на Rails</p> -->
 
 
 
