@@ -4,37 +4,36 @@
     <title>Instaphoto</title>
     <%= csrf_meta_tags %>
 
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">    
+
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-  	<div class="container-fluid container-background">
+  	
+  	<% if user_signed_in? %>
+
+  	<div class="container-fluid  container-login">
+    <%= render "layouts/navigation" %>
+
   	<div class="container">
     
+    <% else %>
 
+    <div class="container-fluid container-background container-login">
+    <%= render "layouts/navigation" %>
 
-	<ul class="nav">
-	  <li class="nav-item">
-	    <%= link_to "Instaphoto", root_path %> 
-	  </li>
-	  <li class="nav-item">
-	    <%= link_to "About", pages_about_path %>
-	  </li>
-	  <% if user_signed_in? %>
-	  <li class="nav-item">
-	    <%= link_to "Выход", destroy_user_session_path, method: :delete %>
-	  </li>
-	  <% end %>
-	 </ul>
+  	<div class="container">
 
-
+    <% end %>
+    
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
 
 	<%= yield %>
 
-    <p><h6>VF-2018</h6></p>
+    <p class="vf-sign">VF-2018</p>
     
     </div></div>
   </body>
