@@ -46,6 +46,7 @@ $text-color: #801000;
 
 .nav-unlogged:hover {
 	color: white !important;
+	background: #AA1010;
 }
 
 .text-logo {
@@ -106,6 +107,22 @@ $text-color: #801000;
 	margin-left: auto;
 	margin-right: auto;
 */
+}
+
+.card {
+	background-color: rgba(255, 255, 255, 0.4);
+	
+}
+
+.card-header {
+	background-color: rgba(255, 255, 255, 0.5);
+}
+
+.devise-card {
+	width: 50%;
+	margin-left: auto;
+	margin-right: auto;
+
 }
 
 .vf-sign {
