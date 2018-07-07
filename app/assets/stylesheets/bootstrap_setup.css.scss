@@ -40,6 +40,10 @@ $text-color: #801000;
 	margin-left: 1.2%;
 }
 
+.navbar-brand:hover {
+	background: #AA1010;
+}
+
 .nav-unlogged {
 	color: black !important;
 }
@@ -100,6 +104,12 @@ $text-color: #801000;
 	background-image: url(image_path('Background2.jpg'));
 }
 
+.bg-grad {
+	width: 100%;
+	height: 100vh;
+	background-size: cover;
+	background-image: url(image_path('Background-Grad.jpg'));
+}
 
 .jumbotron-landing {
 	/*
