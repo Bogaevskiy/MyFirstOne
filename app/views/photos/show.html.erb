@@ -4,6 +4,7 @@
 
 <p>
   <strong>Description:</strong>
+  <%= image_tag @photo.image.url %>
   <%= @photo.description %> <br>
   <strong>User email:</strong>
   <td><%= @photo.user.email if @photo.user %></td>

@@ -3,6 +3,7 @@
    <table>
    <thead>
       <tr>
+        <th>Thumbnail</th>
         <th>Description</th>
         <th>User Email</th>
         <th colspan="3"></th>
@@ -12,12 +13,13 @@
     <tbody>
       <% @photos.each do |photo| %>
         <tr>
+          <td><%= image_tag photo.image.url(:thumb) %></td>
           <td><%= photo.description %></td>
           <td><%= photo.user.email if photo.user %></td>
           <td><%= link_to 'Show', photo %></td>
           <% if photo.user == current_user %> 
-          <td> <%= link_to 'Edit', edit_photo_path(photo) %>  </td>
-          <td><%= link_to 'Destroy', photo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+           <td> <%= link_to 'Edit', edit_photo_path(photo) %>  </td>
+           <td><%= link_to 'Destroy', photo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
           <% end %>
         </tr>
       <% end %>
