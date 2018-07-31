@@ -7,6 +7,7 @@ $link-color: #303030;
 $link-hover-color: #AA1010;
 $link-decoration: none !important;
 $primary: #303030;
+$body-bg: #434343;
 
 
 @import "bootstrap";
@@ -95,6 +96,7 @@ $text-color: #801000;
 .container-login {
 	padding-left: 0px;
 	padding-right: 0px;
+	text-align:center;
 }
 
 .container-background {
@@ -136,9 +138,10 @@ $text-color: #801000;
 }
 
 .photo-card {
-	width: 50%;
+	display:inline-block;
 	margin-left: auto;
 	margin-right: auto;
+	text-align:left;
 }
 
 .vf-sign {
