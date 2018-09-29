@@ -1,16 +1,4 @@
-<%= @user.email %>
-<br>
-
-<% if current_user.id == @user.id%>
-<% else %>
-	<% if current_user.subscriptions.exists?(friend_id: @user.id) %>
-		<%= link_to "Отписаться", unsubscribe_profile_path(@user), class:"btn btn-primary" %> <br>
-	<% else %>
-		<%= link_to "Подписаться", subscribe_profile_path(@user), class:"btn btn-primary" %> <br>
-	<% end %>
-<% end %>
-
-<% @user.photos.each do |photo| %>
+<% @photos.each do |photo| %>
         
   <div class="card photo-card">
    <div class="card-body">
@@ -28,4 +16,9 @@
    </div>
   </div>
         
+<% end %> <br><br>
+    
+
+<% if user_signed_in? %>
+<%= link_to 'New Photo', new_photo_path , class:"btn btn-primary" %>
 <% end %>

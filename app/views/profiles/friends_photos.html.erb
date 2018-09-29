@@ -1,23 +1,11 @@
-<%= @user.email %>
-<br>
-
-<% if current_user.id == @user.id%>
-<% else %>
-	<% if current_user.subscriptions.exists?(friend_id: @user.id) %>
-		<%= link_to "Отписаться", unsubscribe_profile_path(@user), class:"btn btn-primary" %> <br>
-	<% else %>
-		<%= link_to "Подписаться", subscribe_profile_path(@user), class:"btn btn-primary" %> <br>
-	<% end %>
-<% end %>
-
-<% @user.photos.each do |photo| %>
+<% @photos.each do |photo| %>
         
   <div class="card photo-card">
    <div class="card-body">
 
      <%= link_to (image_tag (photo.image.url(:medium))), photo %> <br>
      <strong><%= photo.description %></strong> <br>
-     
+     <%= link_to photo.user.email, profile_path(photo.user_id) if photo.user %> <br>
      <%= link_to 'Show', photo %> 
      <% if photo.user == current_user %> 
        | <%= link_to 'Edit', edit_photo_path(photo) %> |  

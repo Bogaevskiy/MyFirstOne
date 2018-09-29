@@ -11,11 +11,23 @@
     <ul class="navbar-nav float-right">
       
       <li class="nav-item">
+        <%= link_to "Мои фотки", profiles_my_photos_path, class:'nav-link ' %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "Мои подписки", profiles_subscribes_list_path, class:'nav-link ' %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "Фотки друзей", profiles_friends_photos_path, class:'nav-link ' %>
+      </li>
+
+      <li class="nav-item">
         <%= link_to current_user.email, edit_user_registration_path, class:'nav-link ' %>
       </li>
+
       <li class="nav-item">
         <%= link_to "Фотки", photos_path, class:'nav-link ' %>
       </li>
+
       <li class="nav-item">
         <%= link_to "Справка", pages_about_path, class:'nav-link ' %>
       </li>
