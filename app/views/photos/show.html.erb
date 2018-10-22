@@ -5,7 +5,7 @@
 <p>
   <%= image_tag @photo.image.url(:large) %> <br> <br>
   <strong><%= @photo.description %> </strong> <br>
-  <td><%= @photo.user.email if @photo.user %></td>
+  <td>By <%= @photo.user.name if @photo.user %></td>
 </p>
 
 <% if @photo.user == current_user %> 

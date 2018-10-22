@@ -144,6 +144,16 @@ $text-color: #801000;
 	text-align:left;
 }
 
+.down-center{
+	position: absolute; 
+    left: 50%;
+    transform: translateX(-50%);
+	}
+
+.pagination{
+	/* Разобраться с цветом кнопок */
+}
+
 .vf-sign {
 	font-size: 1rem;
 	font-family: 'Special Elite', cursive, bold;

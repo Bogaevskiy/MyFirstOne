@@ -5,7 +5,7 @@
   <% if user_signed_in? %> 
       <p class="lead"><b> <%= ["Здравствуй", "Хай", "Щалом", "Нихао", "Буэнос Диас"][rand(5)] %>,
         <%= ["", "", "", "товарищ"][rand(4)] %>
-      <%= current_user.email.capitalize.split("@")[0] %>  </b></p>
+      <%= current_user.name%>  </b></p>
   <% end %>
 
   <p class="lead">В смысле - о чем это все вообще.</p>
@@ -13,6 +13,8 @@
   <p class="lead"> Можно даже на левую почту </p>
   <p class="lead"> Можно выкладывать фотки </p>
   <p class="lead"> Короче, я стараюсь </p> 
+  <br>
+  <p class="lead"> А раньше я звал тебя "<%= current_user.email.capitalize.split("@")[0] %>"... </p> 
   <!---
   <br>
   <p class="lead"> Просто рандом на 10 - <%= rand(10) + 1 %> </p>
