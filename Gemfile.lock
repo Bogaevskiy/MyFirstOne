@@ -670,6 +670,7 @@ GEM
       activesupport (>= 4.2.0)
     i18n (1.1.0)
       concurrent-ruby (~> 1.0)
+    ionicons-rails (2.0.0)
     jbuilder (2.7.0)
       activesupport (>= 4.2.0)
       multi_json (>= 1.2)
@@ -811,6 +812,7 @@ DEPENDENCIES
   capybara (~> 2.13)
   coffee-script-source (= 1.8.0)
   devise (= 4.4.3)
+  ionicons-rails
   jbuilder (~> 2.5)
   jquery-rails
   paperclip (~> 6.0.0)

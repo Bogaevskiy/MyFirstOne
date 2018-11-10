@@ -1,24 +1,30 @@
-<%= @user.email %>
-<br>
+<h2><%= @user.name %></h2> <br>
 
-<% if current_user.id == @user.id%>
-<% else %>
-	<% if current_user.subscriptions.exists?(friend_id: @user.id) %>
-		<%= link_to "Отписаться", unsubscribe_profile_path(@user), class:"btn btn-primary" %> <br>
-	<% else %>
-		<%= link_to "Подписаться", subscribe_profile_path(@user), class:"btn btn-primary" %> <br>
-	<% end %>
-<% end %>
+<% if user_signed_in? %>
+  <% if current_user.id == @user.id%>
+  <% else %>
+  	<% if current_user.subscriptions.exists?(friend_id: @user.id) %>
+  		<%= link_to "Отписаться", unsubscribe_profile_path(@user), class:"btn btn-primary" %> <br>
+  	<% else %>
+  		<%= link_to "Подписаться", subscribe_profile_path(@user), class:"btn btn-primary" %> <br>
+  	<% end %>
+  <% end %>
+<% end %> <br>
 
-<% @user.photos.each do |photo| %>
+
+
+<% @photos.each do |photo| %>
         
   <div class="card photo-card">
    <div class="card-body">
 
-     <%= link_to (image_tag (photo.image.url(:medium))), photo %> <br>
+     <div class="img-box">
+        <%= link_to photo do %>
+         <%= image_tag photo.image.url(:medium), class: 'image-link'  %>
+        <%end%>
+      </div> <br>
      <strong><%= photo.description %></strong> <br>
      
-     <%= link_to 'Show', photo %> 
      <% if photo.user == current_user %> 
        | <%= link_to 'Edit', edit_photo_path(photo) %> |  
        <%= link_to 'Destroy', photo, method: :delete, data: { confirm: 'Are you sure?' } %>

@@ -7,10 +7,11 @@ $link-color: #303030;
 $link-hover-color: #AA1010;
 $link-decoration: none !important;
 $primary: #303030;
-$body-bg: #434343;
+$body-bg: #2e2e2e; 
 
 
 @import "bootstrap";
+@import 'ionicons';
 
 
 $text-color: #801000;
@@ -101,16 +102,18 @@ $text-color: #801000;
 
 .container-background {
 	width: 100%;
-	height: 100vh;
+	min-height: 100vh;
 	background-size: cover;
 	background-image: url(image_path('Background2.jpg'));
+	background-attachment: fixed;
 }
 
 .bg-grad {
 	width: 100%;
-	height: 100vh;
+	min-height: 100vh;
 	background-size: cover;
 	background-image: url(image_path('Background-Grad.jpg'));
+	
 }
 
 .jumbotron-landing {
@@ -142,6 +145,17 @@ $text-color: #801000;
 	margin-left: auto;
 	margin-right: auto;
 	text-align:left;
+	margin-left: 5px;
+	margin-right: 5px;
+	margin-top: 7px;
+	margin-bottom: 7px;
+	/*
+	margin-left: 0.15%;
+	margin-right: 0.15%;
+	margin-top: 0.3%;
+	margin-bottom: 0.3%
+	*/
+
 }
 
 .down-center{
@@ -150,7 +164,28 @@ $text-color: #801000;
     transform: translateX(-50%);
 	}
 
+.image-link:hover {
+	opacity: 0.65;
+}
+
+.image-link {
+
+}
+
+.drop-link {
+	margin-left: 10%;
+	text-align: right;
+}
+
+.img-box {
+	width: 300px;
+	height: 200px;
+	overflow: hidden;
+	text-align:center
+}
+
 .pagination{
+	margin-top: 5%;
 	/* Разобраться с цветом кнопок */
 }
 

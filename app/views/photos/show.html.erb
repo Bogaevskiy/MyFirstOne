@@ -2,17 +2,23 @@
   
   <div class="card-body">
 
-<p>
+
   <%= image_tag @photo.image.url(:large) %> <br> <br>
   <strong><%= @photo.description %> </strong> <br>
-  <td>By <%= @photo.user.name if @photo.user %></td>
-</p>
+  <td>By <%= link_to profile_path(@photo.user_id) do %> 
+     <i class="icon ion-person"></i> <%= @photo.user.name %>
+     <% end %></td>
 
-<% if @photo.user == current_user %> 
-<%= link_to 'Edit', edit_photo_path(@photo) %> |
-<%= link_to 'Destroy', @photo, method: :delete, data: { confirm: 'Are you sure?' } %> |
-<% end %>
-<%= link_to 'Back', photos_path %> 
+
+<% if @photo.user == current_user %>
+       <%= link_to edit_photo_path(@photo) do %>
+        <i class="icon ion-edit"></i> Изменить 
+       <% end %> |  
+       <%= link_to @photo, method: :delete, data: { confirm: 'Are you sure?' } do %>
+         <i class="icon ion-trash-b"></i> Удалить
+       <% end %>
+       <br>
+     <% end %>
 
 </div>
 </div>
