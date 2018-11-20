@@ -12,11 +12,11 @@
       
 
       <li class="nav-item">
-        <%= link_to "Загрузить", new_photo_path , class:'nav-link ' %>
+        <%= link_to t('navigation.upload'), new_photo_path , class:'nav-link ' %>
       </li>
       
       <li class="nav-item">
-        <%= link_to "Фотки друзей", profiles_friends_photos_path, class:'nav-link ' %>
+        <%= link_to t('navigation.friends_pics'), profiles_friends_photos_path, class:'nav-link ' %>
       </li>
 
         
@@ -28,20 +28,20 @@
 
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
             <a class="dropdown-item" href="#">
-              <%= link_to "Мои фотки", profiles_my_photos_path, class:'drop-link ' %>
+              <%= link_to t('navigation.my_pics'), profiles_my_photos_path, class:'drop-link ' %>
             </a>
             <a class="dropdown-item" href="#">
-              <%= link_to "Мои подписки", profiles_subscribes_list_path, class:'drop-link ' %>
+              <%= link_to t('navigation.subscriptions'), profiles_subscribes_list_path, class:'drop-link ' %>
             </a>
             
             <a class="dropdown-item" href="#">
-              <%= link_to "Аккаунт", edit_user_registration_path, class:'drop-link ' %>
+              <%= link_to t('navigation.account'), edit_user_registration_path, class:'drop-link ' %>
             </a>
             <a class="dropdown-item" href="#">
-              <%= link_to "Справка", pages_about_path, class:'drop-link ' %>
+              <%= link_to t('navigation.about'), pages_about_path, class:'drop-link ' %>
             </a>
             <a class="dropdown-item" href="#">
-              <%= link_to "Выход", destroy_user_session_path, method: :delete, class:'drop-link ' %>
+              <%= link_to t('navigation.quit'), destroy_user_session_path, method: :delete, class:'drop-link ' %>
             </a>
 
           </div>

@@ -4,7 +4,7 @@ class ProfilesController < ApplicationController
 
   
   def show
-    @photos = @user.photos.paginate(:page => params[:page], :per_page => 6)
+    @photos = @user.photos.order('created_at DESC').paginate(:page => params[:page], :per_page => 5)
   end
 
   def subscribe

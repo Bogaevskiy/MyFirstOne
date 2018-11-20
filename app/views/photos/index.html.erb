@@ -18,10 +18,10 @@
      
       <% if photo.user == current_user %> | 
         <%= link_to edit_photo_path(photo) do %>
-          <i class="icon ion-edit"></i> Изменить 
+          <i class="icon ion-edit"></i><%= t('photos.edit') %>
         <% end %> |  
         <%= link_to photo, method: :delete, data: { confirm: 'Are you sure?' } do %>
-          <i class="icon ion-trash-b"></i> Удалить
+          <i class="icon ion-trash-b"></i><%= t('photos.delete') %> 
         <% end %>
          <br>
       <% end %>

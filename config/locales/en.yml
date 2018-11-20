@@ -30,4 +30,48 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  landing:
+    hello: "Hello everyone!"
+    text: "It is something like Instagram, so upload your pics, follow your friends and so on"
+    buttons:
+      signin: "Sign In"
+      login: "Log In"
+  
+  about:
+    header: "A few words about"
+    greet1: "Hello"
+    greet2: "Hi"
+    greet3: "Shalom"
+    greet4: "Nihao"
+    greet5: "Buenos Dias"
+    greet_add: "comrad"
+    text:
+      line1: "I mean - what's this about, in general." 
+      line2: "You can sign in here"
+      line3: "You can even use wrong mail"
+      line4: "(Oh, sorry, that was fixed)"
+      line5: "You can upload pics"
+      line6: "Long story short, I'm doing what I can"
+    button: "To the main page"
+
+  navigation:
+    upload: "Upload"
+    friends_pics: "Friends' pics"
+    my_pics: "My pics"
+    subscriptions: "subscriptions"
+    account: "Account"
+    about: "About"
+    quit: "Quit"
+
+  photos:
+    edit:
+    delete:
+    by:
+    image:
+    description:
+    update_button:
+    show:
+    main:
+
+
+

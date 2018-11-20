@@ -5,15 +5,15 @@
 <% else %>
 
 <div class="jumbotron">
-  <h1 class="display-3">Всем привет!</h1>
+  <h1 class="display-3"><%= t('landing.hello') %></h1>
 
-  <p class="lead">Это будет клон чего-то типа инстаграмма, так что пилите фотки, подписывайтесь на френдов и все такое</p>
+  <p class="lead"><%= t('landing.text') %></p>
   <hr class="my-4">
   
 
   
-  <%= link_to "Создать запись", new_user_registration_path , class:"btn btn-primary" %>
-  <%= link_to "Войти", new_user_session_path , class:"btn btn-primary" %>
+  <%= link_to t('landing.buttons.signin'), new_user_registration_path , class:"btn btn-primary" %>
+  <%= link_to t('landing.buttons.login'), new_user_session_path , class:"btn btn-primary" %>
 
 </div>
 

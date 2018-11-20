@@ -1,3 +1,4 @@
+<!--
 <h2><%= @user.name %></h2> <br>
 
 <% if user_signed_in? %>
@@ -9,9 +10,29 @@
   		<%= link_to "Подписаться", subscribe_profile_path(@user), class:"btn btn-primary" %> <br>
   	<% end %>
   <% end %>
-<% end %> <br>
+<% end %> <br>-->
 
-
+<div class="card photo-card user-card">
+  <div class="card-header user-header">
+    <h4 class="user-name"><%= @user.name %></h4>
+  </div>
+  <div class="card-body">
+      <div class="user-box">
+        <%= @user.description %><br><br>
+       
+        <% if user_signed_in? %>
+          <% if current_user.id == @user.id%>
+          <% else %>
+            <% if current_user.subscriptions.exists?(friend_id: @user.id) %>
+              <%= link_to "Отписаться", unsubscribe_profile_path(@user), class:"btn btn-primary" %><br>
+            <% else %>
+              <%= link_to "Подписаться", subscribe_profile_path(@user), class:"btn btn-primary" %><br>
+            <% end %>
+          <% end %>
+        <% end %>
+      </div>
+  </div>
+</div>
 
 <% @photos.each do |photo| %>
         
@@ -23,7 +44,7 @@
          <%= image_tag photo.image.url(:medium), class: 'image-link'  %>
         <%end%>
       </div> <br>
-     <strong><%= photo.description %></strong> <br>
+     <strong><%= photo.description %></strong><br>
      
      <% if photo.user == current_user %> 
        | <%= link_to 'Edit', edit_photo_path(photo) %> |  
@@ -35,3 +56,9 @@
   </div>
         
 <% end %>
+
+<div class="down-center">
+  <div class="pagination">
+    <%= will_paginate @photos, renderer: WillPaginate::ActionView::BootstrapLinkRenderer %>
+  </div>
+</div>

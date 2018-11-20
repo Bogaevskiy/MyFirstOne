@@ -1,26 +1,30 @@
 <div class="jumbotron">
   
-  <h1 class="display-3">Вроде как справка</h1>
+  <h1 class="display-3"><b><%= t('about.header') %></b></h1>
 
   <% if user_signed_in? %> 
-      <p class="lead"><b> <%= ["Здравствуй", "Хай", "Щалом", "Нихао", "Буэнос Диас"][rand(5)] %>,
-        <%= ["", "", "", "товарищ"][rand(4)] %>
+      <p class="lead"><b> <%= [t('about.greet1'), t('about.greet2'), t('about.greet3'), t('about.greet4'), t('about.greet5')][rand(5)] %>,
+        <%= ["", "", "", t('about.greet_add')][rand(4)] %>
       <%= current_user.name%>  </b></p>
   <% end %>
 
-  <p class="lead">В смысле - о чем это все вообще.</p>
-  <p class="lead"> Здесь можно зарегистрироваться </p>
-  <p class="lead"> Можно даже на левую почту </p>
-  <p class="lead"> (Пардон, уже нельзя)</p>
-  <p class="lead"> Можно выкладывать фотки </p>
-  <p class="lead"> Короче, я стараюсь </p> 
-  <br>
-  <p class="lead"> А раньше я звал тебя "<%= current_user.email.capitalize.split("@")[0] %>"... </p> 
-   
+  <p class="lead"><%= t('about.text.line1') %></p>
+  <p class="lead"><%= t('about.text.line2') %></p>
+  <p class="lead"><%= t('about.text.line3') %></p>
+  <p class="lead"><%= t('about.text.line4') %></p>
+  <p class="lead"><%= t('about.text.line5') %></p>
+  <p class="lead"><%= t('about.text.line6') %></p> 
+  
+ 
+  <!---
+  <% if user_signed_in? %>
+    <p class="lead"> А раньше я звал тебя "<%= current_user.email.capitalize.split("@")[0] %>"... </p> 
+  <% end %>
+   --->
 
   <hr class="my-4">
   
-  <%= link_to "На главную", root_path , class:"btn btn-primary" %>
+  <%= link_to t('about.button'), root_path , class:"btn btn-primary" %>
 
 
 
