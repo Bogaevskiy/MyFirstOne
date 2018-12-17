@@ -10,10 +10,18 @@
     </div>
 
     <br><strong><%= photo.description %></strong><br>
-          
-    <%= link_to profile_path(photo.user_id) do %> 
-      <i class="icon ion-person"></i> <%= photo.user.name %>
+    
+    <% if photo.user == current_user %>
+      <%= link_to profiles_my_photos_path do %> 
+        <i class="icon ion-person"></i> <%= photo.user.name %>
+      <% end %>
+    <% else %>
+      <%= link_to profile_path(photo.user_id) do %> 
+        <i class="icon ion-person"></i> <%= photo.user.name %>
+      <% end %>
     <% end %>
+
+
 
      
       <% if photo.user == current_user %> | 

@@ -47,7 +47,7 @@
      <strong><%= photo.description %></strong><br>
      
      <% if photo.user == current_user %> 
-       | <%= link_to 'Edit', edit_photo_path(photo) %> |  
+       <%= link_to 'Edit', edit_photo_path(photo) %> |  
        <%= link_to 'Destroy', photo, method: :delete, data: { confirm: 'Are you sure?' } %>
        <br>
      <% end %>

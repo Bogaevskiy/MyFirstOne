@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   get '/profiles/:id/subscribe' => 'profiles#subscribe', as: "subscribe_profile"
   get '/profiles/:id/unsubscribe' => 'profiles#unsubscribe', as: "unsubscribe_profile"
 
-  
+  get '/photos/:id/write_comment' => 'photos#new_comment', as: "write_comment"  
+  post '/photos/:id' => 'photos#new_comment'
 
 end

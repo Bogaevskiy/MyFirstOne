@@ -7,6 +7,8 @@ class ProfilesController < ApplicationController
     @photos = @user.photos.order('created_at DESC').paginate(:page => params[:page], :per_page => 5)
   end
 
+  
+
   def subscribe
   	if current_user.id == @user.id
   		redirect_to profile_path(@user), notice: "Нельзя подписаться на себя"
@@ -21,7 +23,7 @@ class ProfilesController < ApplicationController
 	  				redirect_to profile_path(@user), notice: "Подписка выполнена"
 	  			end
 	  	end
-	end
+	 end
   end
 
   def unsubscribe

@@ -57,6 +57,7 @@ $text-color: #801000;
 
 .text-logo {
 	font-family: 'Special Elite', cursive;
+		
 }
 
 .landing-logo {
@@ -103,6 +104,8 @@ $text-color: #801000;
 .container-background {
 	width: 100%;
 	min-height: 100vh;
+	padding-left: 0px;
+	padding-right: 0px;
 	background-size: cover;
 	background-image: url(image_path('Background2.jpg'));
 	background-attachment: fixed;
@@ -111,6 +114,8 @@ $text-color: #801000;
 .bg-grad {
 	width: 100%;
 	min-height: 100vh;
+	padding-left: 0px;
+	padding-right: 0px;
 	background-size: cover;
 	background-image: url(image_path('Background-Grad.jpg'));
 	

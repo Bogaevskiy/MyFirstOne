@@ -1,15 +1,32 @@
 class PhotosController < ApplicationController
-  before_action :set_photo, only: [:show, :edit, :update, :destroy]
+  before_action :set_photo, only: [:show, :edit, :update, :destroy, :new_comment]
   before_action :authenticate_user!, except: [:index, :show]
   before_action :owner, only: [:edit, :update, :destroy]
  
+  def new_comment
+    if user_signed_in?
+      @comment = Comment.new
+      @comment.user_id = current_user.id
+      @comment.photo_id = @photo.id
+      @comment.content = params[:comment][:content]
+      @comment.save
+      redirect_to photo_path(@photo)
+    else
+      redirect_to photo_path(@photo), notice: "Вы не можете оставлять комментарии"
+    end
+  end
+
+
+
+
   def index
     @photos = Photo.all.order('created_at DESC').paginate(:page => params[:page], :per_page => 6)
 
   end
 
- 
+  
   def show
+    @local_comments = Comment.where(photo_id: @photo.id)
   end
 
  
@@ -60,4 +77,5 @@ class PhotosController < ApplicationController
     def photo_params
       params.require(:photo).permit(:description, :image)
     end
-end
+  end
+
