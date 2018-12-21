@@ -18,18 +18,23 @@
   </div>
   <div class="card-body">
       <div class="user-box">
-        <%= @user.description %><br><br>
-       
-        <% if user_signed_in? %>
-          <% if current_user.id == @user.id%>
-          <% else %>
-            <% if current_user.subscriptions.exists?(friend_id: @user.id) %>
-              <%= link_to "Отписаться", unsubscribe_profile_path(@user), class:"btn btn-primary" %><br>
+        <span class="align-bottom">
+          <%= @user.description[0..181].split(' ')[0..-2].join(' ')+"..." %><br><br>
+          Фотки: <strong><%= @user.photos.count %></strong> 
+          Комменты: <strong><%= Comment.where(user_id: @user.id).count %></strong><br>
+        </span>
+        <span class="align-bottom">
+          <% if user_signed_in? %>
+            <% if current_user.id == @user.id%>
             <% else %>
-              <%= link_to "Подписаться", subscribe_profile_path(@user), class:"btn btn-primary" %><br>
+              <% if current_user.subscriptions.exists?(friend_id: @user.id) %>
+                <%= link_to "Отписаться", unsubscribe_profile_path(@user), class:"btn btn-primary" %><br>
+              <% else %>
+                <%= link_to "Подписаться", subscribe_profile_path(@user), class:"btn btn-primary" %><br>
+              <% end %>
             <% end %>
           <% end %>
-        <% end %>
+        </span>
       </div>
   </div>
 </div>

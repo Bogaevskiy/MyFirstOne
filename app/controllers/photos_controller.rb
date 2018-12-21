@@ -5,7 +5,8 @@ class PhotosController < ApplicationController
  
   def new_comment
     if user_signed_in?
-      @comment = Comment.new
+      @comment = @photo.comments.build
+      @comment.author_name = current_user.name
       @comment.user_id = current_user.id
       @comment.photo_id = @photo.id
       @comment.content = params[:comment][:content]

@@ -12,7 +12,7 @@
 
 <% if @photo.user == current_user %>
   <%= link_to edit_photo_path(@photo) do %>
-    <i class="icon ion-edit"></i><%= t('photos.edit') %> 
+    | <i class="icon ion-edit"></i><%= t('photos.edit') %> 
   <% end %> |  
   <%= link_to @photo, method: :delete, data: { confirm: 'Are you sure?' } do %>
     <i class="icon ion-trash-b"></i><%= t('photos.delete') %>
@@ -26,21 +26,38 @@
   <div class="card photo-card">
     <div class="card-body">
       <% @local_comments.each do |comment| %>
-        <strong><%= User.find_by(id: comment.user_id).name %>: </strong>
+        <% if User.find_by(id: comment.user_id) != nil %>
+            <% if user_signed_in? && comment.user_id == current_user.id %>
+              
+              <%= link_to profiles_my_photos_path do %>
+                <strong><%= comment.author_name %>: </strong>
+              <% end %>
+            
+            <% else %>
+
+              <%= link_to profile_path(comment.user_id) do %>
+                <strong><%= comment.author_name %>: </strong>
+              <% end %>
+
+            <% end %>
+        <% else %>
+            <strong><%= comment.author_name %></strong>(удален):
+        <% end %>
+
         <%= comment.content %> <br>
       <% end %>
     </div>
   </div><br>
 <% end %>
 
-<div class="card photo-card">
-  <div class="card-body">      
-    <% if user_signed_in? %>
+<% if user_signed_in? %>
+  <div class="card photo-card">
+    <div class="card-body">      
       <%= form_for :comment do |a| %> 
         <%= a.text_field :content %>         
         <%= a.submit "Post!" , :class => "btn btn-primary"  %>
       <% end %> 
-    <% end %>
+    </div>
   </div>
-</div>
+<% end %>
 
