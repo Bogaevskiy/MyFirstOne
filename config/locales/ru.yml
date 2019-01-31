@@ -32,6 +32,13 @@ ru:
     account: "Аккаунт"
     about: "Справка"
     quit: "Выход"
+    liked: "Понравившиеся"
+    random: "Случайности"
+
+  navigation-un:
+    pics: "Фотки"
+    about: "Справка"
+    sign_in: "Вход"
 
   photos:
     new_header: "Создать фото"
@@ -44,3 +51,20 @@ ru:
     update_button: "Обновить"
     show: "Просмотр"
     main: "На главную"
+    likes: "Понравилось:"
+    com_post: "Сказать"
+    com_limit: "110 символов максимум"
+    sureness: "Вы уверены?"
+
+  profiles:
+    subscribe: "Подписаться"
+    unsubscribe: "Отписаться"
+    pics: "Фотографии:"
+    comments: "Комментарии:"
+
+  random:
+    photo: "Случайное фото"
+    user: "Случайный пользователь"
+    comment: "Случайный комментарий"
+    from: "От пользователя"
+    to: "К фотографии"

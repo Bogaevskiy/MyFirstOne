@@ -5,16 +5,28 @@
 
   <%= image_tag @photo.image.url(:large) %> <br> <br>
   <strong><%= @photo.description %> </strong> <br>
-  <td><%= t('photos.by') %><%= link_to profile_path(@photo.user_id) do %> 
+  
+  <strong><%=t('photos.likes')%> <%= Like.where(liked_id: @photo.id).count %></strong>
+
+  <% if current_user.likes.exists?(liked_id: @photo.id) %>
+    <%= link_to unlike_photo_path do %>
+      &#9660;
+    <% end %><br>
+  <% else %>
+    <%= link_to like_photo_path do %>
+      &#9650; 
+    <% end %><br>
+  <% end %>
+  
+   <td><%= t('photos.by') %><%= link_to profile_path(@photo.user_id) do %> 
      <i class="icon ion-person"></i> <%= @photo.user.name %>
      <% end %></td>
-
-
+ 
 <% if @photo.user == current_user %>
   <%= link_to edit_photo_path(@photo) do %>
     | <i class="icon ion-edit"></i><%= t('photos.edit') %> 
   <% end %> |  
-  <%= link_to @photo, method: :delete, data: { confirm: 'Are you sure?' } do %>
+  <%= link_to @photo, method: :delete, data: { confirm: t('photos.sureness') } do %>
     <i class="icon ion-trash-b"></i><%= t('photos.delete') %>
   <% end %><br>       
 <% end %>
@@ -23,7 +35,7 @@
 </div><br>
 
 <% if @local_comments.exists? %>
-  <div class="card photo-card">
+  <div class="card photo-card" style="max-width: 36rem;" >
     <div class="card-body">
       <% @local_comments.each do |comment| %>
         <% if User.find_by(id: comment.user_id) != nil %>
@@ -43,8 +55,13 @@
         <% else %>
             <strong><%= comment.author_name %></strong>(удален):
         <% end %>
+        
+        <% if comment.content.length > 110 %>
+          <%= comment.content[0..110].split(' ')[0..-2].join(' ')+"..." %><br>
+        <% else %>
+          <%= comment.content %><br>
+        <% end %>
 
-        <%= comment.content %> <br>
       <% end %>
     </div>
   </div><br>
@@ -54,8 +71,10 @@
   <div class="card photo-card">
     <div class="card-body">      
       <%= form_for :comment do |a| %> 
+        <a title= "110 символов максимум" >
         <%= a.text_field :content %>         
-        <%= a.submit "Post!" , :class => "btn btn-primary"  %>
+        </a>
+        <%= a.submit t('photos.com_post') , :class => "btn btn-primary"  %>
       <% end %> 
     </div>
   </div>

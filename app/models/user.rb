@@ -9,4 +9,5 @@ class User < ApplicationRecord
 
   has_many :photos
   has_many :subscriptions
+  has_many :likes
 end

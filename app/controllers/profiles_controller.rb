@@ -1,7 +1,10 @@
 class ProfilesController < ApplicationController
-  before_action :set_user, except: [:my_photos, :subscribes_list, :friends_photos]
+  before_action :set_user, except: [:my_photos, :subscribes_list, :friends_photos, :liked_photos]
   before_action :authenticate_user!, except: [:show]
 
+  def liked_photos
+    @photos = Photo.where(id: current_user.likes.pluck(:liked_id)).order('created_at DESC').paginate(:page => params[:page], :per_page => 6)
+  end
   
   def show
     @photos = @user.photos.order('created_at DESC').paginate(:page => params[:page], :per_page => 5)

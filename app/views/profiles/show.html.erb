@@ -19,18 +19,26 @@
   <div class="card-body">
       <div class="user-box">
         <span class="align-bottom">
-          <%= @user.description[0..181].split(' ')[0..-2].join(' ')+"..." %><br><br>
-          Фотки: <strong><%= @user.photos.count %></strong> 
-          Комменты: <strong><%= Comment.where(user_id: @user.id).count %></strong><br>
+          
+          <% if @user.description != nil %>
+            <% if @user.description.length > 140 %>
+              <%= @user.description[0..141].split(' ')[0..-2].join(' ')+"..." %><br><br>
+            <% else %>
+              <%= @user.description %><br><br>
+            <% end %>
+          <% end %>
+
+          <%= t('profiles.pics') %> <strong><%= @user.photos.count %></strong> 
+          <%= t('profiles.comments') %> <strong><%= Comment.where(user_id: @user.id).count %></strong><br>
         </span>
         <span class="align-bottom">
           <% if user_signed_in? %>
             <% if current_user.id == @user.id%>
             <% else %>
               <% if current_user.subscriptions.exists?(friend_id: @user.id) %>
-                <%= link_to "Отписаться", unsubscribe_profile_path(@user), class:"btn btn-primary" %><br>
+                <%= link_to t('profiles.unsubscribe'), unsubscribe_profile_path(@user), class:"btn btn-primary" %><br>
               <% else %>
-                <%= link_to "Подписаться", subscribe_profile_path(@user), class:"btn btn-primary" %><br>
+                <%= link_to t('profiles.subscribe'), subscribe_profile_path(@user), class:"btn btn-primary" %><br>
               <% end %>
             <% end %>
           <% end %>
@@ -52,8 +60,8 @@
      <strong><%= photo.description %></strong><br>
      
      <% if photo.user == current_user %> 
-       <%= link_to 'Edit', edit_photo_path(photo) %> |  
-       <%= link_to 'Destroy', photo, method: :delete, data: { confirm: 'Are you sure?' } %>
+       <%= link_to t('photos.edit'), edit_photo_path(photo) %> |  
+       <%= link_to t('photos.delete'), photo, method: :delete, data: { confirm: t('photos.sureness') } %>
        <br>
      <% end %>
   

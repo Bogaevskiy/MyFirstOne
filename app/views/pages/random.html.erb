@@ -1,0 +1,81 @@
+<% photo = Photo.all.shuffle.first 
+user = User.all.shuffle.first
+comment = Comment.all.shuffle.first%>
+
+
+
+<div class="card photo-card ">
+   
+	<div class="card-header user-header"> 
+		<h5 class="user-name"><%= t('random.photo') %></h4> 
+	</div> 
+
+   <div class="card-body random-card">
+
+    <div class="img-box">
+    <%= link_to photo do %>
+      <%= image_tag photo.image.url(:medium), class: 'image-link'  %>
+    <%end%>
+    </div>
+
+   <br><strong><%= photo.description %></strong><br>
+           
+   </div>
+</div>      
+
+<div class="card photo-card ">
+   
+	<div class="card-header user-header"> 
+		<h5 class="user-name"><%= t('random.user') %></h4> 
+	</div>  
+
+   <div class="card-body random-card">
+   	
+   		<div class="user-box">
+        <span class="align-bottom">
+        
+        <h4><%= link_to user.name, profile_path(user.id)  %></h4><br>
+
+          <% if user.description != nil %>
+            <% if user.description.length > 100 %>
+              <%= user.description[0..101].split(' ')[0..-2].join(' ')+"..." %><br><br>
+            <% else %>
+              <%= user.description %><br><br>
+            <% end %>
+          <% end %>
+
+          <%= t('profiles.pics') %> <strong><%= user.photos.count %></strong><br> 
+          <%= t('profiles.comments') %> <strong><%= Comment.where(user_id: user.id).count %></strong><br>
+        </span>
+      
+       
+      </div>
+   </div>
+</div>
+
+
+<div class="card photo-card ">
+   
+	<div class="card-header user-header"> 
+		<h5 class="user-name"><%= t('random.comment') %></h4> 
+	</div>  
+
+   <div class="card-body random-card">
+   	<div class="user-box">
+   		<% if comment.content.length > 100 %>
+          <b><%= comment.content[0..100].split(' ')[0..-2].join(' ')+"..." %></b><br><br>
+        <% else %>
+          <b><%= comment.content %></b><br><br>
+        <% end %>
+        <%= t('random.from') %>
+        <%= comment.author_name %> <br>
+        <%= t('random.to') %>
+        <%= link_to Photo.find(comment.photo_id) do %>
+        	<strong><%= Photo.find(comment.photo_id).description %></strong>
+        <%end%>
+    </div>
+	</div>
+</div>
+ 
+	
+

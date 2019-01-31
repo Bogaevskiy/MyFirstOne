@@ -58,20 +58,48 @@ en:
     upload: "Upload"
     friends_pics: "Friends' pics"
     my_pics: "My pics"
-    subscriptions: "subscriptions"
+    subscriptions: "Subscriptions"
     account: "Account"
     about: "About"
     quit: "Quit"
+    liked: "Liked ones"
+    random: "Randomizer"
+
+  navigation-un:
+    pics: "Pics"
+    about: "About"
+    sign_in: "Sign in"
 
   photos:
-    edit:
-    delete:
-    by:
-    image:
-    description:
-    update_button:
-    show:
-    main:
+    new_header: "New photo"
+    edit_header: "Edit photo"
+    edit: "Edit"
+    delete: "Delete"
+    by: "By"
+    image: "Image"
+    description: "Description"
+    update_button: "Update"
+    show: "Show"
+    main: "To main page"
+    likes: "Likes:"
+    com_post: "Post"
+    com_limit: ""
+    sureness: "Are you sure?"
+
+  profiles:
+    subscribe: "Subscribe"
+    unsubscribe: "Unsubscribe"
+    pics: "Photos:"
+    comments: "Comments:"
+
+  random:
+    photo: "Random photo"
+    user: "Random user"
+    comment: "Random comment"
+    from: "From"
+    to: "To"
+
+
 
 
 
