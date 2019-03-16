@@ -1,0 +1,16 @@
+<div class="jumbotron">
+	ПОЕЗГ БУДЕТ ЗДЕСЬ
+	<br>
+	<br>
+
+	<%= form_for :search do |a| %> 
+        
+        <%= a.text_field :search_key %> <br><br>        
+        
+        <%= a.submit "ИСКАТЬ ПИКЧУ" , :class => "btn btn-primary" %>
+        <%= a.submit "ИСКАТЬ ЮЗВЕРЯ" , :class => "btn btn-primary" %>
+    <% end %> 
+
+
+
+</div>

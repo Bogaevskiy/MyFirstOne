@@ -11,6 +11,10 @@ Rails.application.routes.draw do
 
   get 'pages/about'
   get 'pages/random'
+  
+  get 'pages/search'
+  post 'pages/search' => 'pages#search_results', as: "search_results"
+  
   get '/profiles/:id' => 'profiles#show', as: "profile"
   get '/profiles/:id/subscribe' => 'profiles#subscribe', as: "subscribe_profile"
   get '/profiles/:id/unsubscribe' => 'profiles#unsubscribe', as: "unsubscribe_profile"
@@ -20,5 +24,6 @@ Rails.application.routes.draw do
 
   get '/photos/:id/like' => 'photos#like', as: "like_photo"
   get '/photos/:id/unlike' => 'photos#unlike', as: "unlike_photo"
+
 
 end

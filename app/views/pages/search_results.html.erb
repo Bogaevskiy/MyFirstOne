@@ -1,0 +1,87 @@
+<div class="jumbotron">
+	<%= @commit %><br>
+	
+	<% if @commit == "ИСКАТЬ ПИКЧУ" %>
+
+		КАРТИНГЕ ПО ЗАПРОСУ <br>
+		<%= @data %> <br>
+		
+		<% @photo.each do |photo| %>
+	        
+		  <div class="card photo-card">
+		   <div class="card-body">
+
+		    <div class="img-box">
+		    <%= link_to photo do %>
+		      <%= image_tag photo.image.url(:medium), class: 'image-link'  %>
+		    <%end%>
+		    </div>
+
+		    <br><strong><%= photo.description %></strong><br>
+		    
+		    <% if photo.user == current_user %>
+		      <%= link_to profiles_my_photos_path do %> 
+		        <i class="icon ion-person"></i> <%= photo.user.name %>
+		      <% end %>
+		    <% else %>
+		      <%= link_to profile_path(photo.user_id) do %> 
+		        <i class="icon ion-person"></i> <%= photo.user.name %>
+		      <% end %>
+		    <% end %>
+		     
+		      <% if photo.user == current_user %> | 
+		        <%= link_to edit_photo_path(photo) do %>
+		          <i class="icon ion-edit"></i><%= t('photos.edit') %>
+		        <% end %> |  
+		        <%= link_to photo, method: :delete, data: { confirm: 'Are you sure?' } do %>
+		          <i class="icon ion-trash-b"></i><%= t('photos.delete') %> 
+		        <% end %>
+		         <br>
+		      <% end %>
+		   </div>
+		  </div>       
+		<% end %>
+	<% end %>
+	
+	<% if @commit == "ИСКАТЬ ЮЗВЕРЯ" %> 
+	<% @user.each do |user| %> 
+
+		<div class="card photo-card user-card">
+  			<div class="card-header user-header">
+		    	<h4 class="user-name"><%= user.name %></h4>
+		  	</div>
+		  	<div class="card-body">
+		      <div class="user-box">
+		        <span class="align-bottom">
+		          
+		          <% if user.description != nil %>
+		            <% if user.description.length > 140 %>
+		              <%= user.description[0..141].split(' ')[0..-2].join(' ')+"..." %><br><br>
+		            <% else %>
+		              <%= user.description %><br><br>
+		            <% end %>
+		          <% end %>
+
+		          <%= t('profiles.pics') %> <strong><%= user.photos.count %></strong> 
+		          <%= t('profiles.comments') %> <strong><%= Comment.where(user_id: user.id).count %></strong><br>
+		        </span>
+		        <span class="align-bottom">
+		          <% if user_signed_in? %>
+		            <% if current_user.id == user.id%>
+		            <% else %>
+		              <% if current_user.subscriptions.exists?(friend_id: user.id) %>
+		                <%= link_to t('profiles.unsubscribe'), unsubscribe_profile_path(user), class:"btn btn-primary" %><br>
+		              <% else %>
+		                <%= link_to t('profiles.subscribe'), subscribe_profile_path(user), class:"btn btn-primary" %><br>
+		              <% end %>
+		            <% end %>
+		          <% end %>
+		        </span>
+		      </div>
+		  	</div>
+		</div>
+
+	<% end %>	
+	<% end %>
+
+</div>

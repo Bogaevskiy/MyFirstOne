@@ -1,6 +1,6 @@
 <div class="jumbotron">
   
-  <h1 class="display-3"><b><%= t('about.header') %></b></h1>
+  <h1 class="display-3"><b><%= t('about.header') %></b></h1><br>
 
   <% if user_signed_in? %> 
       <p class="lead"><b> <%= [t('about.greet1'), t('about.greet2'), t('about.greet3'), t('about.greet4'), t('about.greet5')][rand(5)] %>,
