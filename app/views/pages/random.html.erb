@@ -34,8 +34,10 @@ comment = Comment.all.shuffle.first%>
    		<div class="user-box">
         <span class="align-bottom">
         
-        <h4><%= link_to user.name, profile_path(user.id)  %></h4><br>
-
+        <%= link_to profile_path(user.id) do %>
+          <h4><i class="icon ion-person"></i> <%= user.name %></h4> <br>
+        <% end %>
+        
           <% if user.description != nil %>
             <% if user.description.length > 100 %>
               <%= user.description[0..101].split(' ')[0..-2].join(' ')+"..." %><br><br>

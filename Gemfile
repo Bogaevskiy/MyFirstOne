@@ -10,11 +10,13 @@ end
 gem 'rails', '~> 5.1.6'
 # Use sqlite3 as the database for Active Record
 
+gem 'pg'
+
 gem "paperclip", "~> 6.0.0"
 
 group :development, :test do
-	# Use sqlite3 as the database for Active Record
-  gem 'sqlite3'
+	
+  
 end
 
 gem 'devise', '4.4.3'
@@ -73,7 +75,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 
 group :production do
- gem 'pg'
+ 
  gem 'rails_12factor'
 
 end

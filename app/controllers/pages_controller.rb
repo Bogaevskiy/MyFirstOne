@@ -12,10 +12,10 @@ class PagesController < ApplicationController
   	@data = params[:search][:search_key]
   	@commit = params[:commit]
   	
-  	if params[:commit] == "ИСКАТЬ ПИКЧУ"
-   		@photo = Photo.where('description LIKE ?', "%#{params[:search][:search_key]}%")
-   	elsif params[:commit] == "ИСКАТЬ ЮЗВЕРЯ"
-   		@user = User.where('name LIKE ?', "%#{params[:search][:search_key]}%")
+  	if params[:commit] == t('search.pic_search')
+   		@photo = Photo.where('description LIKE ?', "%#{params[:search][:search_key]}%").order('created_at DESC')
+   	elsif params[:commit] == t('search.user_search')
+   		@user = User.where('name LIKE ?', "%#{params[:search][:search_key]}%").order('created_at DESC')
 
    	end
   end

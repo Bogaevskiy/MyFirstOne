@@ -68,3 +68,12 @@ ru:
     comment: "Случайный комментарий"
     from: "От пользователя"
     to: "К фотографии"
+
+  search:
+    search: "Поиск"
+    heading: "Ищете что-то?"
+    pic_search: "Искать фотки"
+    user_search: "Искать пользователей"
+    pic_search_results: "Фотки по запросу"
+    user_search_results: "Пользователи по запросу"
+    to_user: "К пользователю"

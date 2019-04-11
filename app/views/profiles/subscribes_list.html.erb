@@ -1,3 +1,5 @@
+
+<!---
 <% @friends.each do |friend| %>
         
   <div class="card photo-card">
@@ -7,5 +9,40 @@
     
    </div>
   </div>
+--->
+
+
+<% end %>
+
+
+<% @friends.each do |friend| %>
+
+	<div class="card photo-card user-card">
+  			<div class="card-header user-header">
+		    	<h4 class="user-name">
+		    		<%= friend.name %>
+		    	</h4>
+		  	</div>
+		  	<div class="card-body">
+		      <div class="user-box">
+		        <span class="align-bottom">
+		          
+		          <% if friend.description != nil %>
+		            <% if friend.description.length > 140 %>
+		              <%= friend.description[0..141].split(' ')[0..-2].join(' ')+"..." %><br><br>
+		            <% else %>
+		              <%= friend.description %><br><br>
+		            <% end %>
+		          <% end %>
+
+		          <%= t('profiles.pics') %> <strong><%= friend.photos.count %></strong> 
+		          <%= t('profiles.comments') %> <strong><%= Comment.where(user_id: friend.id).count %></strong><br>
+		        </span>
+		        <span class="align-bottom">
+		            <%= link_to t('search.to_user'), profile_path(friend.id), class:"btn btn-primary" %>
+		        </span>
+		      </div>
+		  	</div>
+		</div>
 
 <% end %>

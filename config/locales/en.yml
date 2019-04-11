@@ -99,6 +99,16 @@ en:
     from: "From"
     to: "To"
 
+  search:
+    search: "Search"
+    heading: "Looking for something?"
+    pic_search: "Search for photos"
+    user_search: "Search for users"
+    pic_search_results: "Photos found by"
+    user_search_results: "Users found by"
+    to_user: "To user's page"
+
+
 
 
 

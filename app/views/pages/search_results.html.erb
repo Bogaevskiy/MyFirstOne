@@ -1,10 +1,7 @@
-<div class="jumbotron">
-	<%= @commit %><br>
-	
-	<% if @commit == "ИСКАТЬ ПИКЧУ" %>
+	<% if @commit == t('search.pic_search') %>
 
-		КАРТИНГЕ ПО ЗАПРОСУ <br>
-		<%= @data %> <br>
+		<h3> <%=t('search.pic_search_results')%> <br>
+		"<%= @data %>" <br> </h3>
 		
 		<% @photo.each do |photo| %>
 	        
@@ -40,48 +37,43 @@
 		      <% end %>
 		   </div>
 		  </div>       
-		<% end %>
+		<% end %>		
+
 	<% end %>
 	
-	<% if @commit == "ИСКАТЬ ЮЗВЕРЯ" %> 
-	<% @user.each do |user| %> 
+	<% if @commit == t('search.user_search') %> 
+		<h3><%=t('search.user_search_results')%><br>
+		"<%= @data %>" <br></h3>
+		<% @user.each do |user| %> 
 
-		<div class="card photo-card user-card">
-  			<div class="card-header user-header">
-		    	<h4 class="user-name"><%= user.name %></h4>
-		  	</div>
-		  	<div class="card-body">
-		      <div class="user-box">
-		        <span class="align-bottom">
-		          
-		          <% if user.description != nil %>
-		            <% if user.description.length > 140 %>
-		              <%= user.description[0..141].split(' ')[0..-2].join(' ')+"..." %><br><br>
-		            <% else %>
-		              <%= user.description %><br><br>
-		            <% end %>
-		          <% end %>
+			<div class="card photo-card user-card">
+	  			<div class="card-header user-header">
+			    	<h4 class="user-name">
+			    		<%= user.name %>
+			    	</h4>
+			  	</div>
+			  	<div class="card-body">
+			      <div class="user-box">
+			        <span class="align-bottom">
+			          
+			          <% if user.description != nil %>
+			            <% if user.description.length > 140 %>
+			              <%= user.description[0..141].split(' ')[0..-2].join(' ')+"..." %><br><br>
+			            <% else %>
+			              <%= user.description %><br><br>
+			            <% end %>
+			          <% end %>
 
-		          <%= t('profiles.pics') %> <strong><%= user.photos.count %></strong> 
-		          <%= t('profiles.comments') %> <strong><%= Comment.where(user_id: user.id).count %></strong><br>
-		        </span>
-		        <span class="align-bottom">
-		          <% if user_signed_in? %>
-		            <% if current_user.id == user.id%>
-		            <% else %>
-		              <% if current_user.subscriptions.exists?(friend_id: user.id) %>
-		                <%= link_to t('profiles.unsubscribe'), unsubscribe_profile_path(user), class:"btn btn-primary" %><br>
-		              <% else %>
-		                <%= link_to t('profiles.subscribe'), subscribe_profile_path(user), class:"btn btn-primary" %><br>
-		              <% end %>
-		            <% end %>
-		          <% end %>
-		        </span>
-		      </div>
-		  	</div>
-		</div>
+			          <%= t('profiles.pics') %> <strong><%= user.photos.count %></strong> 
+			          <%= t('profiles.comments') %> <strong><%= Comment.where(user_id: user.id).count %></strong><br>
+			        </span>
+			        <span class="align-bottom">
+			            <%= link_to t('search.to_user'), profile_path(user.id), class:"btn btn-primary" %>
+			        </span>
+			      </div>
+			  	</div>
+			</div>
+		<% end %>
 
-	<% end %>	
 	<% end %>
 
-</div>

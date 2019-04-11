@@ -1,5 +1,5 @@
 <div class="jumbotron">
-	ПОЕЗГ БУДЕТ ЗДЕСЬ
+	<h3><%= t('search.heading') %></h3>
 	<br>
 	<br>
 
@@ -7,8 +7,8 @@
         
         <%= a.text_field :search_key %> <br><br>        
         
-        <%= a.submit "ИСКАТЬ ПИКЧУ" , :class => "btn btn-primary" %>
-        <%= a.submit "ИСКАТЬ ЮЗВЕРЯ" , :class => "btn btn-primary" %>
+        <%= a.submit t('search.pic_search') , :class => "btn btn-primary" %>
+        <%= a.submit t('search.user_search') , :class => "btn btn-primary" %>
     <% end %> 
 
 
