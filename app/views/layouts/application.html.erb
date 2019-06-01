@@ -8,8 +8,18 @@
 
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">    
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= if user_signed_in?
+      if current_user.theme == 0
+        stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+      elsif current_user.theme == 1
+        stylesheet_link_tag    'application-dark', media: 'all', 'data-turbolinks-track': 'reload'
+      end
+    else
+      stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' 
+    end%>
+
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
   </head>
 
   <body>
@@ -33,7 +43,7 @@
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
 
-	<%= yield %>
+  	<%= yield %>
 
     <p class="vf-sign">VF-2018</p>
     

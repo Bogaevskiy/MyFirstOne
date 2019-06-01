@@ -25,5 +25,8 @@ Rails.application.routes.draw do
   get '/photos/:id/like' => 'photos#like', as: "like_photo"
   get '/photos/:id/unlike' => 'photos#unlike', as: "unlike_photo"
 
+  get '/pages/theme1' => 'pages#change_theme_1'
+  get '/pages/theme0' => 'pages#change_theme_0'
+
 
 end

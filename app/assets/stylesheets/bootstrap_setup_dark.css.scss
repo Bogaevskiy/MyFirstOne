@@ -4,10 +4,10 @@ $display3-size: 2.5rem;
 $jumbotron-bg: rgba(255, 255, 255, 0.4);
 $link-color: #303030;
 /*$link-hover-color: darken($link-color, 35%);*/
-$link-hover-color: #191970;
+$link-hover-color: #AA1010;
 $link-decoration: none !important;
 $primary: #303030;
-$body-bg: #afafaf; 
+$body-bg: #2e2e2e; 
 
 
 @import "bootstrap";
@@ -15,11 +15,6 @@ $body-bg: #afafaf;
 
 
 $text-color: #801000;
-
-.bg-dark {
-	background-color: #707070 !important;
-
-}
 
 .r-text {
 	color: $text-color;
@@ -31,13 +26,12 @@ $text-color: #801000;
 
 .nav-link {
 	margin-left: 1.2%;
-	color: #ffffff;
 
 }
 
 .nav-link:hover {
 	color: #AA1010;
-	background: #191970;
+	background: #AA1010;
 }
 
 .navbar {
@@ -49,7 +43,7 @@ $text-color: #801000;
 }
 
 .navbar-brand:hover {
-	background: #191970;
+	background: #AA1010;
 }
 
 .nav-unlogged {
@@ -79,18 +73,18 @@ $text-color: #801000;
 }
 
 .btn-primary {
-	background: #707070;
+	background: #303030;
     color: #ffffff;
     border: 0 none !important;
 }
 
 .btn-primary:hover {
-	background: #191970;
+	background: #AA1010;
     color: #ffffff;
 }
 
 .btn-primary:active {
-  background: #0f0f45 !important;
+  background: black !important;
   /*outline: none !important;
   box-shadow: none !important;*/
   
@@ -123,7 +117,7 @@ $text-color: #801000;
 	padding-left: 0px;
 	padding-right: 0px;
 	background-size: cover;
-	background-image: url(image_path('Background-paper.jpg'));
+	background-image: url(image_path('Background-Grad.jpg'));
 	
 }
 

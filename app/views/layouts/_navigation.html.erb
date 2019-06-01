@@ -2,7 +2,7 @@
 <% if user_signed_in? %>
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <%= link_to "Sombrephoto", root_path, class:'nav-link, navbar-brand text-logo'%>
+  <%= link_to " Sombrephoto ", root_path, class:'nav-link, navbar-brand text-logo'%>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -52,6 +52,18 @@
             <a class="dropdown-item" href="#">
               <%= link_to t('navigation.random'), pages_random_path, class:'drop-link ' %>
             </a>
+
+            <% if current_user.theme == 0 %>
+              <a class="dropdown-item" href="#">
+                <%= link_to t('navigation.dark-theme'), pages_theme1_path, class:'drop-link ' %>
+              </a>
+            <% end %>
+            <% if current_user.theme == 1 %>
+              <a class="dropdown-item" href="#">
+                <%= link_to t('navigation.light-theme'), pages_theme0_path, class:'drop-link ' %>
+              </a>
+            <% end %>
+
             <a class="dropdown-item" href="#">
               <%= link_to t('navigation.quit'), destroy_user_session_path, method: :delete, class:'drop-link ' %>
             </a>

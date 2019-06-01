@@ -32,7 +32,7 @@
 en:
   landing:
     hello: "Hello everyone!"
-    text: "It is something like Instagram, so upload your pics, follow your friends and so on"
+    text: "It is something like Instagram clone, so upload your pics, comment and follow your friends"
     buttons:
       signin: "Sign In"
       login: "Log In"
@@ -47,11 +47,13 @@ en:
     greet_add: "comrad"
     text:
       line1: "I mean - what's this about, in general." 
-      line2: "You can sign in here"
-      line3: "You can even use wrong mail"
-      line4: "(Oh, sorry, that was fixed)"
-      line5: "You can upload pics"
-      line6: "Long story short, I'm doing what I can"
+      line2: "It is a training project, which was started in april, 2018."
+      line3: "Main aim - studying Ruby and Ruby On Rails."
+      line4: "Also, of course - HTML, CSS, Bootstrap framework and database management."
+      line5: "At first, I used SQLite, and, later, changed it to PostgreSQL."
+      line6: "And, in fact - it is some kind of Instagram clone -"
+      line7: "registration, adding photos, comments, subscriptions"
+      line8: "Welcome!"
     button: "To the main page"
 
   navigation:
@@ -64,6 +66,8 @@ en:
     quit: "Quit"
     liked: "Liked ones"
     random: "Randomizer"
+    dark-theme: "Turn off the lights"
+    light-theme: "Turn on the lights"
 
   navigation-un:
     pics: "Pics"
