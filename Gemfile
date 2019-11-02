@@ -19,7 +19,7 @@ group :development, :test do
   
 end
 
-gem 'devise', '4.4.3'
+gem 'devise', '4.7.1'
 
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
